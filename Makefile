@@ -8,7 +8,8 @@ hdd.img:
 	$(dosbox) --conf win98.conf -c "IMGMAKE hdd.img -t hd_8gig" -c "EXIT"
 
 run: hdd.img
-	$(dosbox) --conf win98.conf \
+	# Run with dynamic core
+	$(dosbox) --conf win98dynamic.conf \
 		-c "KEYB de" \
 		-c "IMGMOUNT C hdd.img " \
 		-c "IMGMOUNT D win98.iso" \
@@ -17,7 +18,8 @@ run: hdd.img
 		-c "BOOT C:"
 
 setup: hdd.img
-	$(dosbox) --conf win98.conf \
+	# Install with normal core
+	$(dosbox) --conf win98normal.conf \
 		-c "KEYB de" \
 		-c "IMGMOUNT C hdd.img " \
 		-c "IMGMOUNT D win98.iso" \
